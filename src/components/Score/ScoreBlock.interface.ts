@@ -1,3 +1,3 @@
 export interface IScoreBlockProps {
-	currentScore: number;
+  currentScore: number
 }

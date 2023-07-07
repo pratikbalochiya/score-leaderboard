@@ -1,39 +1,35 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react'
 
 // Interfaces
-import { IScoreProps } from "./Score.interface";
+import { IScoreProps } from './Score.interface'
 
 // Constants
-import {
-  COUNTER_INTERVAL_GAP,
-  SCORE_DIFFERENCE,
-  INCREMENT_VALUE,
-} from "../../constants/common";
+import { COUNTER_INTERVAL_GAP, SCORE_DIFFERENCE, INCREMENT_VALUE } from '../../constants/common'
 
 const Score = ({ currentScore }: IScoreProps) => {
-  const counterRef = useRef<HTMLHeadingElement>(null);
+  const counterRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
-    let counterStart = currentScore - SCORE_DIFFERENCE;
-    const counterEnd = currentScore;
+    let counterStart = currentScore - SCORE_DIFFERENCE
+    const counterEnd = currentScore
 
     const interval = setInterval(() => {
-      counterStart = counterStart + INCREMENT_VALUE;
+      counterStart = counterStart + INCREMENT_VALUE
 
       if (counterStart === counterEnd) {
-        clearInterval(interval);
+        clearInterval(interval)
       }
       if (counterRef.current) {
-        counterRef.current.innerText = counterStart.toString();
+        counterRef.current.innerText = counterStart.toString()
       }
-    }, COUNTER_INTERVAL_GAP);
+    }, COUNTER_INTERVAL_GAP)
 
     return () => {
-      clearInterval(interval);
-    };
-  }, [currentScore]);
+      clearInterval(interval)
+    }
+  }, [currentScore])
 
-  return <h3 ref={counterRef}>{currentScore - SCORE_DIFFERENCE} </h3>;
-};
+  return <h3 ref={counterRef}>{currentScore - SCORE_DIFFERENCE} </h3>
+}
 
-export default Score;
+export default Score

@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react'
 
 // UI
-import { StyledLeaderBoardWrapper } from "../../ui/components/LeaderBoard";
-import { StyledULWrapper } from "../../ui/components/List";
+import { StyledLeaderBoardWrapper } from '../../ui/components/LeaderBoard'
+import { StyledULWrapper } from '../../ui/components/List'
 
 // Components
-import ListContainer from "../../components/ListContainer";
+import ListContainer from '../../components/ListContainer'
 
 // Constants
-import { PLAYERS } from "../../constants/players";
-import { SHUFFLE_INTERVAL_GAP } from "../../constants/common";
+import { PLAYERS } from '../../constants/players'
+import { SHUFFLE_ROWS, SHUFFLE_INTERVAL_GAP } from '../../constants/common'
 
 // Interfaces
-import { IPlayerData } from "../../interfaces/player";
+import { IPlayerData } from '../../interfaces/player'
 
 // Utils
-import { getRandomIndex, getScore, getSortByKey } from "../../utils/common";
+import { getRandomIndex, getScore, getSortByKey } from '../../utils/common'
 
 const LeaderBoard = () => {
-  const [playerList, setPlayerList] = useState<IPlayerData[]>(PLAYERS);
+  const [playerList, setPlayerList] = useState<IPlayerData[]>(PLAYERS)
 
   useEffect(() => {
     // Shuffle-logic
     const shuffleInterval = setInterval(() => {
-      const randomIndex = getRandomIndex();
-
+      const randomIndex = getRandomIndex()
+      const shuffleRows = SHUFFLE_ROWS
       const shuffledList = playerList.map((record, index) => {
         return {
           ...record,
@@ -32,19 +32,20 @@ const LeaderBoard = () => {
           score: getScore({
             index,
             randomIndex,
+            shuffleRows,
             score: record.score,
           }),
-        };
-      });
+        }
+      })
 
-      const sortedShuffledList = getSortByKey(shuffledList);
-      setPlayerList(sortedShuffledList);
-    }, SHUFFLE_INTERVAL_GAP);
+      const sortedShuffledList = getSortByKey(shuffledList)
+      setPlayerList(sortedShuffledList)
+    }, SHUFFLE_INTERVAL_GAP)
 
     return () => {
-      clearInterval(shuffleInterval);
-    };
-  }, [playerList]);
+      clearInterval(shuffleInterval)
+    }
+  }, [playerList])
 
   return (
     <StyledLeaderBoardWrapper>
@@ -52,7 +53,7 @@ const LeaderBoard = () => {
         <ListContainer data={playerList} />
       </StyledULWrapper>
     </StyledLeaderBoardWrapper>
-  );
-};
+  )
+}
 
-export default LeaderBoard;
+export default LeaderBoard

@@ -1,5 +1,5 @@
-import { IPlayerData } from '../../interfaces/player';
+import { IPlayerData } from '../../interfaces/player'
 
 export interface IListContainerProps {
-	data: IPlayerData[];
+  data: IPlayerData[]
 }

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react'
 
 // UI
-import { StyledUL } from "../../ui/components/List";
+import { StyledUL } from '../../ui/components/List'
 
 // Components
-import ListItem from "../ListItem";
+import ListItem from '../ListItem'
 
 // Interfaces
-import { IListContainerProps } from "./ListContainer.interface";
+import { IListContainerProps } from './ListContainer.interface'
 
 const ListContainer = ({ data }: IListContainerProps) => {
   return (
@@ -24,7 +24,7 @@ const ListContainer = ({ data }: IListContainerProps) => {
         />
       ))}
     </StyledUL>
-  );
-};
+  )
+}
 
-export default ListContainer;
+export default ListContainer

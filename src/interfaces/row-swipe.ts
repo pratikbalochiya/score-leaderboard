@@ -1,4 +1,4 @@
 export interface IRowSwipeProps {
-	start: number;
-	end: number;
+  start: number
+  end: number
 }

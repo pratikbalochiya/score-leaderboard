@@ -1,5 +1,5 @@
 export interface IProfileProps {
-	name?: string;
-	picture?: string;
-	index: number;
+  name?: string
+  picture?: string
+  index: number
 }

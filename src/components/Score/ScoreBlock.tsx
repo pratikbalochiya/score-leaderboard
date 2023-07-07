@@ -1,11 +1,11 @@
 // UI
-import { StyledScoreBlock } from "../../ui/components/Score";
+import { StyledScoreBlock } from '../../ui/components/Score'
 
 // Components
-import Score from "./Score";
+import Score from './Score'
 
 // Interfaces
-import { IScoreBlockProps } from "./ScoreBlock.interface";
+import { IScoreBlockProps } from './ScoreBlock.interface'
 
 const ScoreBlock = ({ currentScore }: IScoreBlockProps) => {
   return (
@@ -13,7 +13,7 @@ const ScoreBlock = ({ currentScore }: IScoreBlockProps) => {
       <Score currentScore={currentScore} />
       <span>points</span>
     </StyledScoreBlock>
-  );
-};
+  )
+}
 
-export default ScoreBlock;
+export default ScoreBlock

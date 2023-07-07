@@ -1,31 +1,31 @@
-import React, { useMemo } from "react";
+import React, { useMemo } from 'react'
 
 // UI
 import {
   StyledProfile,
   StyledProfileWrapper,
   StyledProfilePicture,
-} from "../../ui/components/Profile";
+} from '../../ui/components/Profile'
 
 // Constants
-import { MEDALS } from "../../constants/common";
+import { MEDALS } from '../../constants/common'
 
 // Interfaces
-import { IProfileProps } from "./Profile.interface";
+import { IProfileProps } from './Profile.interface'
 
 const Profile = ({ name, picture, index }: IProfileProps) => {
   const badgeClass = useMemo(() => {
     switch (index) {
       case 0:
-        return MEDALS.gold;
+        return MEDALS.gold
       case 1:
-        return MEDALS.sliver;
+        return MEDALS.sliver
       case 2:
-        return MEDALS.bronze;
+        return MEDALS.bronze
       default:
-        return "";
+        return ''
     }
-  }, [index]);
+  }, [index])
 
   return (
     <StyledProfileWrapper>
@@ -35,7 +35,7 @@ const Profile = ({ name, picture, index }: IProfileProps) => {
       </StyledProfile>
       <span>{name}</span>
     </StyledProfileWrapper>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

@@ -1,3 +1,3 @@
 export interface IScoreProps {
-	currentScore: number;
+  currentScore: number
 }

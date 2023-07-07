@@ -1,28 +1,22 @@
-import React from "react";
+import React from 'react'
 
 // UI
-import { StyledLI } from "../../ui/components/List";
+import { StyledLI } from '../../ui/components/List'
 
 // Components
-import Profile from "../Profile";
-import Score from "../Score";
+import Profile from '../Profile'
+import Score from '../Score'
 
 // Interfaces
-import { IListItemsProps } from "./ListItem.interface";
+import { IListItemsProps } from './ListItem.interface'
 
-const ListItem = ({
-  oldIndex,
-  index,
-  picture,
-  name,
-  score,
-}: IListItemsProps) => {
+const ListItem = ({ oldIndex, index, picture, name, score }: IListItemsProps) => {
   return (
     <StyledLI start={60 * oldIndex} end={60 * index}>
       <Profile name={name} index={index} picture={`assets/images/${picture}`} />
       <Score currentScore={score} />
     </StyledLI>
-  );
-};
+  )
+}
 
-export default ListItem;
+export default ListItem

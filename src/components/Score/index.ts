@@ -1,1 +1,1 @@
-export { default } from './ScoreBlock';
+export { default } from './ScoreBlock'
