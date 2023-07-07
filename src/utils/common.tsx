@@ -12,7 +12,7 @@ import { IGetScore } from '../interfaces/get-score'
 import { IRowSwipeProps } from '../interfaces/row-swipe'
 
 export const getRandomIndex = () => {
-  return Math.floor(Math.random() * (PLAYERS.length - 1)) + 1
+  return Math.floor(Math.random() * PLAYERS.length)
 }
 
 export const getRandomScore = () => {
@@ -21,7 +21,7 @@ export const getRandomScore = () => {
 
 export const getScore: IGetScore = ({ index, randomIndex, shuffleRows, score }) => {
   let isMatch = false
-  for (let i = randomIndex - shuffleRows; i < randomIndex; i++) {
+  for (let i = randomIndex - shuffleRows + 1; i <= randomIndex; i++) {
     if (i === index) {
       isMatch = true
     }
