@@ -9,6 +9,7 @@ import LeaderBoard from './pages/leader-board'
 const App = () => {
   return (
     <>
+      <h1>{process.env.REACT_APP_TEST_KEY}</h1>
       <GlobalStyle />
       <LeaderBoard />
     </>
