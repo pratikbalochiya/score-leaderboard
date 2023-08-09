@@ -9,6 +9,7 @@ import LeaderBoard from './pages/leader-board'
 const App = () => {
   return (
     <>
+      test
       <GlobalStyle />
       <LeaderBoard />
     </>
