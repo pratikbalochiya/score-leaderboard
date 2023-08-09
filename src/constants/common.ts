@@ -1,5 +1,4 @@
 export const COUNTER_INTERVAL_GAP = 3
-export const SHUFFLE_ROWS = 2
 export const SHUFFLE_INTERVAL_GAP = 1000
 export const SCORE_DIFFERENCE = 500
 export const INCREMENT_VALUE = 5

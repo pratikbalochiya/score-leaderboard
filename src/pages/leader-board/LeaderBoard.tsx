@@ -9,13 +9,13 @@ import ListContainer from '../../components/ListContainer'
 
 // Constants
 import { PLAYERS } from '../../constants/players'
-import { SHUFFLE_ROWS, SHUFFLE_INTERVAL_GAP } from '../../constants/common'
+import { SHUFFLE_INTERVAL_GAP } from '../../constants/common'
 
 // Interfaces
 import { IPlayerData } from '../../interfaces/player'
 
 // Utils
-import { getRandomIndex, getScore, getSortByKey } from '../../utils/common'
+import { getScore, getSortByKey } from '../../utils/common'
 
 const LeaderBoard = () => {
   const [playerList, setPlayerList] = useState<IPlayerData[]>(PLAYERS)
@@ -23,18 +23,11 @@ const LeaderBoard = () => {
   useEffect(() => {
     // Shuffle-logic
     const shuffleInterval = setInterval(() => {
-      const randomIndex = getRandomIndex()
-      const shuffleRows = SHUFFLE_ROWS
       const shuffledList = playerList.map((record, index) => {
         return {
           ...record,
           oldIndex: index,
-          score: getScore({
-            index,
-            randomIndex,
-            shuffleRows,
-            score: record.score,
-          }),
+          score: getScore(record.score),
         }
       })
 

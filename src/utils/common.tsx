@@ -3,35 +3,18 @@
 import { keyframes } from 'styled-components'
 
 // Constants
-import { PLAYERS } from '../constants/players'
 import { RANDOM_MAX_VALUE } from '../constants/common'
 
 // Interfaces
 import { IPlayerData } from '../interfaces/player'
-import { IGetScore } from '../interfaces/get-score'
 import { IRowSwipeProps } from '../interfaces/row-swipe'
-
-export const getRandomIndex = () => {
-  return Math.floor(Math.random() * PLAYERS.length)
-}
 
 export const getRandomScore = () => {
   return Math.floor(Math.random() * RANDOM_MAX_VALUE)
 }
 
-export const getScore: IGetScore = ({ index, randomIndex, shuffleRows, score }) => {
-  let isMatch = false
-  for (let i = randomIndex - shuffleRows + 1; i <= randomIndex; i++) {
-    if (i === index) {
-      isMatch = true
-    }
-  }
-
-  return isMatch
-    ? index % 2 === 0
-      ? isMatch && score + getRandomScore()
-      : isMatch && score - getRandomScore()
-    : score
+export const getScore = (score: number) => {
+  return score + getRandomScore()
 }
 
 export const getSortByKey = (sortArr: IPlayerData[]) => {
